@@ -1,0 +1,15 @@
+<ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <h1>Películas Nuevas</h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+<swiper-container #swiper init="false">
+  <swiper-slide *ngFor="let pelicula of peliculasRecientes">
+    <ion-card (click)="verDetalle(pelicula.id)">
+      <img [src]="pelicula.backdrop_path | image"/>
+    </ion-card>
+  </swiper-slide>
+</swiper-container>

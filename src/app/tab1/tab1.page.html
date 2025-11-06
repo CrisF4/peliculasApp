@@ -1,17 +1,17 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <app-slideshow-backdrop [peliculasRecientes]="peliculasRecientes"></app-slideshow-backdrop>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <app-slideshow-poster [peliculasRecientes]="peliculasRecientes"></app-slideshow-poster>
+
+  <app-slideshow-pares [peliculasRecientes]="populares" (cargarMas)="cargarMas()"></app-slideshow-pares>
+
+  <!-- <swiper-container [Options]="slideOpts">
+    <swiper-slide *ngFor="let pelicula of peliculasRecientes">
+      <ion-card>
+        <img [src]="pelicula.backdrop_path | image"/>
+      </ion-card>
+    </swiper-slide>
+  </swiper-container> -->
+
 </ion-content>

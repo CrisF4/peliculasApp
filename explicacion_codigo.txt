@@ -1,0 +1,2 @@
+Se hizo uso de swipper debido a ciertos fallos con el componente nativo de ionic-slides
+Debido a este cambio, ahora SlideOpts se remplazo por la implementación propia de swiper.

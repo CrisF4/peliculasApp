@@ -1,0 +1,15 @@
+<ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <h1>Cartelera</h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+<swiper-container #swiper init="false">
+  <swiper-slide *ngFor="let pelicula of peliculasRecientes">
+    <ion-card (click)="verDetalle(pelicula.id)">
+      <img class="poster" [src]="pelicula.poster_path | image" [alt]="pelicula.title"/>
+    </ion-card>
+  </swiper-slide>
+</swiper-container>
