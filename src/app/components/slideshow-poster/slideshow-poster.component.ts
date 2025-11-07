@@ -19,6 +19,7 @@ export class SlideshowPosterComponent  implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   async verDetalle(id: number){
+    console.log('slideshow-poster verDetalle id:', id);
     const modal = await this.modalCtrl.create({
       component: DetalleComponent,
       componentProps: {

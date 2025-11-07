@@ -19,6 +19,7 @@ export class SlideshowBackdropComponent  implements OnInit {
   ngOnInit() {}
 
   async verDetalle(id: number){
+    console.log('slideshow-backdrop verDetalle id:', id);
     const modal = await this.modalCtrl.create({
       component: DetalleComponent,
       componentProps: {
@@ -32,7 +33,7 @@ export class SlideshowBackdropComponent  implements OnInit {
     if (this.swiperRef) {
       const swiperEl = this.swiperRef.nativeElement;
 
-      // Opciones de Swiper. Parecido a ionic slidesOpts
+
       Object.assign(swiperEl, {
         slidesPerView: 1.1,
         freeMode: true,

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RespuestaTMDB } from '../intefaces/interfaces';
+import { RespuestaTMDB, PeliculaDetalle, RespuestaCredits } from '../intefaces/interfaces';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -19,6 +19,9 @@ export class Movies {
   private ejecutarQuery<T>( query: string ){
     query = URL + query;
     query += `&api_key=${ apiKey }&language=es&include_image_language=es`;
+
+   //console.log( query );
+
     return this.http.get<T>( query );
   }
 
@@ -48,4 +51,20 @@ export class Movies {
 
     return this.ejecutarQuery<RespuestaTMDB>(`/discover/movie?primary_release_date.gte=${ inicio }&primary_release_date.lte=${ fin }`);
   }
+
+getPeliculaDetalle( id: string ) {
+  return this.ejecutarQuery<PeliculaDetalle>(`/movie/${ id }?a=1`);
+}
+
+searchMovies(query: string): Observable<RespuestaTMDB> {
+  // Escape query minimally
+  const q = encodeURIComponent(query.trim());
+  return this.ejecutarQuery<RespuestaTMDB>(`/search/movie?query=${ q }&page=1`);
+}
+getActoresPelicula( id: string ){
+  return this.ejecutarQuery<RespuestaCredits>(`/movie/${ id }/credits?a=1`);
+}
+
+
+
 }

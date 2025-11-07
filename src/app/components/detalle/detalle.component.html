@@ -1,3 +1,51 @@
-<p>
-  detalle works!
-</p>
+<ion-content>
+  <div class="detalle">
+    <div class="backdrop" [style.background-image]="'url(' + ((pelicula?.backdrop_path || null) | image) + ')'">
+      <img class="poster" [src]="(pelicula?.poster_path || null) | image" alt="{{pelicula?.title}}" />
+      <div class="title-block">
+        <h1>{{ pelicula?.title }}</h1>
+        <div class="meta">
+          <span>{{ pelicula?.release_date }}</span>
+          <span class="badge">{{ pelicula?.vote_average }} ★</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="overview">
+      <h3>Sinopsis</h3>
+      <p>{{ pelicula?.overview }}</p>
+    </div>
+
+    <div class="extra">
+      <div class="badge">{{ pelicula?.runtime }} min</div>
+  <div class="badge">{{ genresText }}</div>
+    </div>
+
+    <div class="actores" *ngIf="cast && cast.length">
+      <h3>Actores</h3>
+      <div class="cast-list">
+        <div class="actor" *ngFor="let a of cast">
+          <img [src]="a.profile_path | image" alt="{{ a.name }}" />
+          <div class="name">{{ a.name }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer style="--detalle-footer-bg: rgba(3,6,20,0.96);">
+  <ion-toolbar>
+    <div class="footer-buttons">
+      <ion-button fill="clear" class="btn-back" (click)="close()">
+        <ion-icon slot="start" name="arrow-back"></ion-icon>
+        <ion-label>Regresar</ion-label>
+      </ion-button>
+
+      <ion-button fill="clear" class="btn-fav">
+        <ion-icon slot="start" name="star-outline"></ion-icon>
+        <ion-label>Favoritos</ion-label>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

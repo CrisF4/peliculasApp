@@ -20,6 +20,7 @@ export class SlideshowParesComponent  implements OnInit {
   ngOnInit() {}
 
   async verDetalle(id: number){
+    console.log('slideshow-pares verDetalle id:', id);
     const modal = await this.modalCtrl.create({
       component: DetalleComponent,
       componentProps: {

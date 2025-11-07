@@ -1,0 +1,202 @@
+ion-content {
+  --ion-background-color: #05060a;
+  background: linear-gradient(180deg, #0b1220 0%, #05060a 100%);
+  color: #eef2f7;
+
+  .detalle {
+    padding: 16px;
+
+    .backdrop {
+      position: relative;
+      height: 220px;
+      border-radius: 10px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 28px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.75));
+      }
+
+      .poster {
+        position: absolute;
+        left: 16px;
+        bottom: -28px;
+        width: 120px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(2,6,23,0.8);
+        z-index: 2;
+        border: 2px solid rgba(255,255,255,0.06);
+        background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.2));
+      }
+
+      .title-block {
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+        left: 160px; /* leave space for poster */
+        z-index: 3;
+
+        h1 {
+          margin: 0 0 6px 0;
+          font-size: 1.4rem;
+          line-height: 1.1;
+          font-weight: 700;
+          color: #ffffff;
+          text-shadow: 0 2px 8px rgba(3,6,20,0.6);
+        }
+
+        .meta {
+          display: flex;
+          gap: 12px;
+          font-size: 0.9rem;
+          color: rgba(238,242,247,0.85);
+          align-items: center;
+        }
+      }
+    }
+
+    .overview {
+      margin-top: 40px;
+      color: rgba(238,242,247,0.95);
+      line-height: 1.6;
+      font-size: 0.98rem;
+    }
+
+    .extra {
+      margin-top: 18px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+
+      .badge {
+        background: rgba(255,255,255,0.04);
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        color: rgba(238,242,247,0.9);
+      }
+    }
+
+    .actores {
+      margin-top: 20px;
+
+      h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.05rem;
+        color: #fff;
+      }
+
+      .cast-list {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+      }
+
+      .actor {
+        flex: 0 0 100px;
+        text-align: center;
+
+        img {
+          width: 100%;
+          height: 140px;
+          object-fit: cover;
+          border-radius: 8px;
+          box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+        }
+
+        .name {
+          margin-top: 6px;
+          font-size: 0.85rem;
+          color: rgba(238,242,247,0.95);
+        }
+      }
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (min-width: 768px) {
+    .detalle {
+      padding: 24px;
+
+      .backdrop {
+        height: 300px;
+
+        .poster {
+          left: 32px;
+          bottom: -30px;
+          width: 160px;
+          height: 240px;
+        }
+
+        .title-block h1 { font-size: 2rem; }
+      }
+
+      .overview { font-size: 1.05rem; }
+    }
+  }
+}
+
+ion-footer {
+  --background: var(--detalle-footer-bg, rgba(10,12,16,0.9));
+  background: var(--detalle-footer-bg, rgba(10,12,16,0.9));
+  border-top: none;
+  backdrop-filter: none;
+
+  ion-toolbar {
+    background: var(--detalle-footer-bg, rgba(10,12,16,0.9)) !important;
+    --background: transparent !important;
+    color: #fff !important;
+  }
+
+  :host {
+    z-index: 9999;
+  }
+
+  .footer-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 8px;
+  }
+
+  ion-button {
+    color: #fff;
+    --padding-start: 8px;
+    --padding-end: 8px;
+  }
+
+  .btn-fav ion-icon {
+    color: #ffd166; /* amarillo suave para destacar */
+  }
+}
+
+.detalle-container {
+  background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+  min-height: 100vh;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.poster-detalle {
+  position: relative;
+  top: -75px;
+  left: -10px;
+  margin-bottom: -75px;
+
+  img {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+}
