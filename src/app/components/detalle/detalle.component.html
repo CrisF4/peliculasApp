@@ -34,7 +34,7 @@
 
 </ion-content>
 
-<ion-footer style="--detalle-footer-bg: rgba(3,6,20,0.96);">
+<ion-footer class="detalle-footer">
   <ion-toolbar>
     <div class="footer-buttons">
       <ion-button fill="clear" class="btn-back" (click)="close()">
@@ -42,9 +42,9 @@
         <ion-label>Regresar</ion-label>
       </ion-button>
 
-      <ion-button fill="clear" class="btn-fav">
-        <ion-icon slot="start" name="star-outline"></ion-icon>
-        <ion-label>Favoritos</ion-label>
+      <ion-button fill="clear" class="btn-fav" (click)="toggleFavorito()" [color]="esFavorito ? 'warning' : 'medium'">
+        <ion-icon slot="start" [name]="esFavorito ? 'star' : 'star-outline'"></ion-icon>
+        <ion-label>{{ esFavorito ? 'En Favoritos' : 'Agregar a Favoritos' }}</ion-label>
       </ion-button>
     </div>
   </ion-toolbar>

@@ -1,0 +1,158 @@
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  text-align: center;
+  padding: 20px;
+  color: var(--ion-color-medium);
+
+  ion-icon {
+    font-size: 100px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 16px;
+    max-width: 300px;
+  }
+}
+
+// Contenedor de géneros
+.generos-container {
+  padding: 16px 0;
+}
+
+// Sección de cada género
+.genero-seccion {
+  margin-bottom: 32px;
+
+  &:last-child {
+    margin-bottom: 16px;
+  }
+}
+
+// Header del género
+.genero-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px 8px 16px;
+  background: linear-gradient(90deg,
+    var(--ion-color-primary-shade) 0%,
+    transparent 100%);
+  border-left: 4px solid var(--ion-color-primary);
+  margin-bottom: 8px;
+
+  .genero-titulo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ion-color-primary-contrast);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .genero-contador {
+    font-size: 14px;
+    color: var(--ion-color-medium);
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 12px;
+  }
+}
+
+// Lista de películas
+.genero-lista {
+  background: transparent;
+  padding: 0;
+}
+
+ion-item {
+  --padding-start: 10px;
+  --background: transparent;
+  margin-bottom: 8px;
+
+  ion-thumbnail {
+    width: 80px;
+    height: 120px;
+    margin-right: 15px;
+
+    img {
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  ion-label {
+    h3 {
+      font-weight: 600;
+      color: var(--ion-color-primary);
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--ion-color-medium);
+      margin: 3px 0;
+
+      &.fecha {
+        font-size: 13px;
+      }
+
+      &.rating {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-weight: 500;
+        color: var(--ion-color-warning);
+
+        ion-icon {
+          font-size: 14px;
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+}
+
+ion-item-option {
+  ion-icon {
+    font-size: 24px;
+  }
+}
+
+// Estilos responsivos
+@media (min-width: 768px) {
+  .genero-header {
+    padding: 16px 24px 12px 24px;
+
+    .genero-titulo {
+      font-size: 24px;
+    }
+
+    .genero-contador {
+      font-size: 15px;
+    }
+  }
+
+  ion-item {
+    ion-thumbnail {
+      width: 100px;
+      height: 150px;
+    }
+
+    ion-label h3 {
+      font-size: 18px;
+    }
+  }
+}

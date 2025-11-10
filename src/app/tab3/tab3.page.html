@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Tab 3
+      Favoritos
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,56 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Favoritos</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <!-- Mensaje cuando no hay favoritos -->
+  <div *ngIf="peliculasFavoritas.length === 0" class="empty-state">
+    <ion-icon name="star-outline" size="large"></ion-icon>
+    <h2>No tienes favoritos</h2>
+    <p>Agrega películas a tus favoritos desde los detalles de cada película</p>
+  </div>
+
+  <!-- Películas agrupadas por género -->
+  <div *ngIf="peliculasFavoritas.length > 0" class="generos-container">
+    <div *ngFor="let grupo of peliculasPorGenero" class="genero-seccion">
+
+      <!-- Título del género -->
+      <div class="genero-header">
+        <h2 class="genero-titulo">{{ grupo.genero }}</h2>
+        <span class="genero-contador">{{ grupo.peliculas.length }} {{ grupo.peliculas.length === 1 ? 'película' : 'películas' }}</span>
+      </div>
+
+      <!-- Lista de películas del género -->
+      <ion-list lines="none" class="genero-lista">
+        <ion-item-sliding *ngFor="let pelicula of grupo.peliculas">
+          <ion-item (click)="verDetalle(pelicula.id)" button detail="true">
+            <ion-thumbnail slot="start">
+              <img
+                [src]="pelicula.poster_path | image:'w200'"
+                alt="Póster de película"
+                [title]="pelicula.title"
+                [attr.aria-label]="'Póster de ' + pelicula.title" />
+            </ion-thumbnail>
+            <ion-label>
+              <h3>{{ pelicula.title }}</h3>
+              <p class="fecha">{{ pelicula.release_date }}</p>
+              <p class="rating">
+                <ion-icon name="star" color="warning"></ion-icon>
+                {{ pelicula.vote_average }}
+              </p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="eliminarFavorito(pelicula)">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </div>
+  </div>
+
 </ion-content>

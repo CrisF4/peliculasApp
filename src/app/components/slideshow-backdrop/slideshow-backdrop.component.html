@@ -6,10 +6,10 @@
     </ion-row>
   </ion-grid>
 
-<swiper-container #swiper init="false">
+<swiper-container #swiper init="false" mode="md">
   <swiper-slide *ngFor="let pelicula of peliculasRecientes">
-    <ion-card (click)="verDetalle(pelicula.id)">
-      <img [src]="pelicula.backdrop_path | image"/>
+    <ion-card *ngIf="pelicula.backdrop_path" (click)="verDetalle(pelicula.id)">
+      <img [src]="pelicula.backdrop_path | image" alt="Película" [title]="pelicula.title"/>
     </ion-card>
   </swiper-slide>
 </swiper-container>
