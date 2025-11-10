@@ -1,14 +1,23 @@
 # peliculasApp
 
-An Ionic project
+Una aplicación desarrollada en Ionic v6 que permite al usuario consultar peliculas de todo tipo obtenidas de la base de datos de TMDB.
 
 
-## Tests
+## Instalación y ejecución
 
+Descargue este repositorio y dentro de la carpeta raiz, ejecute el siguiente comando
 ```sh
 npm install
-npm test
 ```
+Cuando se hace la instalación, las dependencias pueden tardar unos minutos en asimilarse en Visual Studio Code.
+Una vez preparado el proyecto, ejecute el siguiente comando en la terminal PowerShell:
+```sh
+ionic serve
+```
+La aplicación se ejecutara en una nueva pestaña dentro de su navegador web predeterminado.
+
+Igualmente aqui esta el link para acceder a la aplicación desplegada en Firebase:
+- [appPeliculas_PWA](https://apppeliculas-c8b2c.web.app/tabs/tab1)
 
 ## Dependencies
 
